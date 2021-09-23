@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache
+    Software Foundation//DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="baseLayout" template="/WEB-INF/layout/base.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="content" value=""/>
+    </definition>
+    <definition name="index" extends="baseLayout">
+        <put-attribute name="title" value="Home"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/index.jsp"/>
+    </definition>
+    <definition name="tour" extends="baseLayout">
+        <put-attribute name="title" value="Tour"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/tour.jsp"/>
+    </definition>
+    <definition name="aboutus" extends="baseLayout">
+        <put-attribute name="title" value="About Us"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/aboutus.jsp"/>
+    </definition>
+    <definition name="customerprotect" extends="baseLayout">
+        <put-attribute name="title" value="Customer Protection"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/customerprotect.jsp"/>
+    </definition>
+    <definition name="contact" extends="baseLayout">
+        <put-attribute name="title" value="Contact"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/contact.jsp"/>
+    </definition>
+    <definition name="tourinfo" extends="baseLayout">
+        <put-attribute name="title" value="Tour Info"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/tourinfo.jsp"/>
+    </definition>
+    
+    <definition name="baseAdmin" template="/WEB-INF/layout/baseAdmin.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="content" value=""/>
+    </definition>
+    <definition name="/admin/adminsite" extends="baseAdmin">
+        <put-attribute name="title" value="AdminSite"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminsite.jsp"/>
+    </definition>
+    <definition name="/admin/addTour" extends="baseAdmin">
+        <put-attribute name="title" value="Add Tour"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/addTour.jsp"/>
+    </definition>
+    <definition name="/admin/adminTour" extends="baseAdmin">
+        <put-attribute name="title" value="Tour"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminTour.jsp"/>
+    </definition>
+    <definition name="/admin/adminCity" extends="baseAdmin">
+        <put-attribute name="title" value="City"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminCity.jsp"/>
+    </definition>
+    <definition name="/admin/addCity" extends="baseAdmin">
+        <put-attribute name="title" value="Add City"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/addCity.jsp"/>
+    </definition>
+    <definition name="/admin/adminTag" extends="baseAdmin">
+        <put-attribute name="title" value="Tag"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminTag.jsp"/>
+    </definition>
+    <definition name="/admin/addTag" extends="baseAdmin">
+        <put-attribute name="title" value="Add Tag"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/addTag.jsp"/>
+    </definition>
+    <definition name="/admin/adminSeat" extends="baseAdmin">
+        <put-attribute name="title" value="Seat"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminSeat.jsp"/>
+    </definition>
+    <definition name="/admin/addSeat" extends="baseAdmin">
+        <put-attribute name="title" value="Add Seat"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/addSeat.jsp"/>
+    </definition>
+    <definition name="/admin/updateCity" extends="baseAdmin">
+        <put-attribute name="title" value="Update City"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/updateCity.jsp"/>
+    </definition>
+    <definition name="/admin/updateTag" extends="baseAdmin">
+        <put-attribute name="title" value="Update Tag"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/updateTag.jsp"/>
+    </definition>
+    <definition name="/admin/updateSeat" extends="baseAdmin">
+        <put-attribute name="title" value="Update Seat"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/updateSeat.jsp"/>
+    </definition>
+    <definition name="/admin/updateTour" extends="baseAdmin">
+        <put-attribute name="title" value="Update Tour"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/updateTour.jsp"/>
+    </definition>
+    <definition name="/admin/adminStaff" extends="baseAdmin">
+        <put-attribute name="title" value="Staff"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminStaff.jsp"/>
+    </definition>
+    <definition name="/admin/addStaff" extends="baseAdmin">
+        <put-attribute name="title" value="Add Staff"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/addStaff.jsp"/>
+    </definition>
+    <definition name="/admin/updateStaff" extends="baseAdmin">
+        <put-attribute name="title" value="Update Staff"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/updateStaff.jsp"/>
+    </definition>
+    <definition name="/admin/adminCustomer" extends="baseAdmin">
+        <put-attribute name="title" value="Customers"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/adminCustomer.jsp"/>
+    </definition>
+    <definition name="/admin/updateCustomer" extends="baseAdmin">
+        <put-attribute name="title" value="Update Customers"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/updateCustomer.jsp"/>
+    </definition>
+    
+    <definition name="baseLogin" template="/WEB-INF/layout/baseLogin.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="header" value=""/>
+    </definition>
+    <definition name="register" extends="baseLogin">
+        <put-attribute name="title" value="Register"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/register.jsp"/>
+        <put-attribute name="header" value="Register"/>
+    </definition>
+    <definition name="login" extends="baseLogin">
+        <put-attribute name="title" value="Login"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp"/>
+        <put-attribute name="header" value="Login"/>
+    </definition>
+</tiles-definitions>
