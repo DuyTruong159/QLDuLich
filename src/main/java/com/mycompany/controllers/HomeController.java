@@ -79,5 +79,15 @@ public class HomeController {
         model.addAttribute("commentTour", this.commentService.getCommentTour(id));
         return "tourinfo";
     }
+    
+    @RequestMapping("/datve/{tId}/{sId}")
+    public String datve(Model model,
+            @PathVariable(value="tId") int tId,
+            @PathVariable(value="sId") int sId) {
+        model.addAttribute("tours", this.tourService.getToursId(tId));
+        model.addAttribute("seats", this.seatService.getSeatbyId(sId).get(0));
+        return "datve";
+    }
+
 }
 

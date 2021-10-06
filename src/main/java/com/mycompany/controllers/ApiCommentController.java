@@ -6,7 +6,9 @@
 package com.mycompany.controllers;
 
 import com.mycompany.pojo.Comment;
+import com.mycompany.pojo.Ticket;
 import com.mycompany.service.CommentService;
+import com.mycompany.service.TicketService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiCommentController {
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private TicketService ticketService;
     
     @PostMapping(path = "/api/addComment", produces = {
         MediaType.APPLICATION_JSON_VALUE
@@ -42,6 +46,23 @@ public class ApiCommentController {
         }
         
          return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+    
+    @PostMapping(path = "/api/addTicket")
+    public ResponseEntity<Ticket> addTicket(@RequestBody Map<String, String> param) {
+        try {
+            int tour = Integer.parseInt(param.get("tour"));
+            int seat = Integer.parseInt(param.get("seat"));
+            int quantity = Integer.parseInt(param.get("quantity"));
+            
+            Ticket t = this.ticketService.addTicket(seat, tour, quantity);
+            
+            return new ResponseEntity<>(t, HttpStatus.CREATED);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
     
 }

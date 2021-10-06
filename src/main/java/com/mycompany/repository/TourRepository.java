@@ -23,4 +23,5 @@ public interface TourRepository {
     void deleteTour(int id);
     Boolean updateTour(Tour tour);
     long countTour();
+    List<Object[]> tourStats();
 }

@@ -84,13 +84,12 @@
                     <div class="col-xl-4 mb-30">
                             <div class="card-box height-100-p pd-20">
                                     <h2 class="h4 mb-20">Lead Target</h2>
-                                    <div id="chart6"></div>
+                                     <div id="chart6"></div>
                             </div>
                     </div>
             </div>
             <div class="card-box mb-30">
                     <h2 class="h4 pd-20">All Tours</h2>
-                    
                     <form action="" class="form-group">
                         <div class="row pb-5">
                             <div class="col-md-11">
@@ -100,6 +99,7 @@
                                 <input type="submit" value="Search" class="btn btn-primary"/>
                             </div>
                         </div>
+                        
                     </form>
                     
                     <table class="data-table table nowrap">
@@ -186,3 +186,7 @@
                     </div>
             </div>
     </div>
+                                                    
+   
+                              
+                                                   

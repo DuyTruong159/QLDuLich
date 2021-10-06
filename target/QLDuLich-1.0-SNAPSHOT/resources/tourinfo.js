@@ -111,3 +111,22 @@ function addComment(tourId) {
         ` + area.innerHTML
     });
 }
+
+function addTicket(tourId,seatId) {
+    fetch("/QLDuLich/api/addTicket", {
+        method: "post",
+        body: JSON.stringify({
+            "quantity": document.getElementById("quantity").value,
+            "tour": tourId,
+            "seat": seatId
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.json();
+    }).then(function(data) {
+        console.log(data);
+        alert("Bạn đặt vé thành công");
+    })
+}

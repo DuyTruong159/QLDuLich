@@ -5,11 +5,14 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,7 +51,11 @@ public class User implements Serializable{
     private int money;
     private String pass;
     @OneToMany(mappedBy="user")
+    @JsonIgnore
     private Set<Comment> comment;
+    @OneToMany(mappedBy="user", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Ticket> ticket;
     
     @Transient
     private MultipartFile file;
@@ -277,6 +284,20 @@ public class User implements Serializable{
      */
     public void setComment(Set<Comment> comment) {
         this.comment = comment;
+    }
+
+    /**
+     * @return the ticket
+     */
+    public List<Ticket> getTicket() {
+        return ticket;
+    }
+
+    /**
+     * @param ticket the ticket to set
+     */
+    public void setTicket(List<Ticket> ticket) {
+        this.ticket = ticket;
     }
 
     

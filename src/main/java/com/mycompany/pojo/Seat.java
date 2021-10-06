@@ -5,13 +5,17 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -28,7 +32,11 @@ public class Seat implements Serializable {
     private int price;
     @ManyToOne
     @JoinColumn(name="tour_id")
+    @JsonIgnore
     private Tour tour;
+    @OneToMany(mappedBy="seat", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Ticket> ticket;
 
     /**
      * @return the id
@@ -84,6 +92,20 @@ public class Seat implements Serializable {
      */
     public void setTour(Tour tour) {
         this.tour = tour;
+    }
+
+    /**
+     * @return the ticket
+     */
+    public List<Ticket> getTicket() {
+        return ticket;
+    }
+
+    /**
+     * @param ticket the ticket to set
+     */
+    public void setTicket(List<Ticket> ticket) {
+        this.ticket = ticket;
     }
     
 }

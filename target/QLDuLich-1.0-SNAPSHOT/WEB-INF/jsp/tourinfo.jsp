@@ -45,12 +45,12 @@
                                                 <c:choose>
                                                     <c:when test="${s.name == Adults}">
                                                         <li class="col-md-6">
-                                                            <a href="javascript:void(0);"><p class="h3 text-center">${s.name}</p><span><p class="h4">${s.price} USD</span></p></a>
+                                                            <a href="<c:url value="/datve/${t.id}/${s.id}"/>"><p class="h3 text-center">${s.name}</p><span><p class="h4">${s.price} USD</span></p></a>
                                                         </li>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <li class="col-md-6">
-                                                            <a href="javascript:void(0);"><p class="h3 text-center">${s.name}</p><span><p class="h4">${s.price} USD</span></p></a>
+                                                            <a href="<c:url value="/datve/${t.id}/${s.id}"/>"><p class="h3 text-center">${s.name}</p><span><p class="h4">${s.price} USD</span></p></a>
                                                         </li>
                                                     </c:otherwise>
                                                 </c:choose>
@@ -151,5 +151,5 @@
                     <!-- end product -->
                 </div>
             </div>
-        </div>
+    </div>
 </main> <!-- .content -->

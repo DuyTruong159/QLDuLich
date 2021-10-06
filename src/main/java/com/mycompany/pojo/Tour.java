@@ -5,8 +5,10 @@
  */
 package com.mycompany.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,14 +47,20 @@ public class Tour implements Serializable {
     private boolean available;
     @ManyToOne
     @JoinColumn(name="city_id")
+    @JsonIgnore
     private City city;
     @OneToMany(mappedBy="tour")
+    @JsonIgnore
     private Set<Seat> seat;
     @ManyToMany(mappedBy="tour", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Tag> tag;
     @OneToMany(mappedBy="tour", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Comment> comment;
-    
+    @OneToMany(mappedBy="tour")
+    @JsonIgnore
+    private List<Ticket> ticket;
     @Transient
     private MultipartFile file;
     /**
@@ -235,6 +243,20 @@ public class Tour implements Serializable {
      */
     public void setComment(Set<Comment> comment) {
         this.comment = comment;
+    }
+
+    /**
+     * @return the ticket
+     */
+    public List<Ticket> getTicket() {
+        return ticket;
+    }
+
+    /**
+     * @param ticket the ticket to set
+     */
+    public void setTicket(List<Ticket> ticket) {
+        this.ticket = ticket;
     }
     
 }

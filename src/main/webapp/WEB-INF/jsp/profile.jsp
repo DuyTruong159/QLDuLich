@@ -59,19 +59,20 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Date</th>
-                            <th scope="col">Duaration</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach var="t" varStatus="status" items="${u.ticket}">
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>cell</td>
+                            <th scope="row">${status.count}</th>
+                            <td>${t.tour.name}</td>
+                            <td>${t.tour.date}</td>
+                            <td>${t.quantity}</td>
+                            <td>${t.seat.price * t.quantity} USD</td>
                         </tr>
-                        
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

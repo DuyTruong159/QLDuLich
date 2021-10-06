@@ -6,6 +6,7 @@
 package com.mycompany.repository.impl;
 
 
+import com.mycompany.pojo.Tag;
 import com.mycompany.pojo.Tour;
 import com.mycompany.repository.TourRepository;
 import java.util.List;
@@ -159,6 +160,24 @@ public class TourRepositoryImpl implements TourRepository{
             Predicate p = b.like(root.get("name").as(String.class), String.format("%%%s%%", kw));
             query = query.where(p);
         }
+        
+        Query q = s.createQuery(query);
+        
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Object[]> tourStats() {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder b = s.getCriteriaBuilder();
+        CriteriaQuery<Object[]> query = b.createQuery(Object[].class);
+        Root rootT = query.from(Tour.class);
+        Root rootTa = query.from(Tag.class);
+        
+        query.where(b.equal(rootT.get("tag"), rootTa.get("id")));
+        
+        query.multiselect(rootTa.get("id"), rootTa.get("name"), b.count(rootT.get("id")));
+        query.groupBy(rootTa.get("id"));
         
         Query q = s.createQuery(query);
         

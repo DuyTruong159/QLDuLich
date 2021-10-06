@@ -39,6 +39,10 @@ and open the template in the editor.
         <put-attribute name="title" value="Tour Info"/>
         <put-attribute name="content" value="/WEB-INF/jsp/tourinfo.jsp"/>
     </definition>
+    <definition name="datve" extends="baseLayout">
+        <put-attribute name="title" value="Đặt vé"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/datve.jsp"/>
+    </definition>
     
     <definition name="baseAdmin" template="/WEB-INF/layout/baseAdmin.jsp">
         <put-attribute name="title" value=""/>

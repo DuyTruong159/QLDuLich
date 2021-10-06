@@ -97,4 +97,9 @@ public class TourServiceImpl implements TourService{
     public List<Tour> getTourKw(String kw) {
         return this.tourRepository.getTourKw(kw);
     }
+
+    @Override
+    public List<Object[]> tourStats() {
+        return this.tourRepository.tourStats();
+    }
 }

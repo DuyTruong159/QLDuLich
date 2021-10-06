@@ -7,6 +7,7 @@ package com.mycompany.controllers;
 
 import com.google.common.collect.ImmutableList;
 import com.mycompany.pojo.User;
+import com.mycompany.service.TicketService;
 import com.mycompany.service.UserService;
 import com.mycompany.validator.UserNameValidator;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
     @Autowired
     private UserService userDetailsService;
+    @Autowired
+    private TicketService ticketService;
     
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -108,6 +111,7 @@ public class UserController {
         }
         model.addAttribute("u", u);
         model.addAttribute("errMsg", errMsg);
+        model.addAttribute("ticket", this.ticketService.getAllTicket());
         return "profile";
     } 
     
@@ -121,6 +125,7 @@ public class UserController {
         User u = this.userDetailsService.getUsers(user).get(0);
         
         model.addAttribute("u", u);
+//        model.addAttribute("ticket", this.ticketService.getAllTicket());
         return "profile";
     }
     
