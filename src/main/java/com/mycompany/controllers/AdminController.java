@@ -89,6 +89,8 @@ public class AdminController {
         model.addAttribute("seats", this.seatService.getSeat());
         model.addAttribute("counter", this.tourService.countTour());
         model.addAttribute("user", this.userService.getUsers(""));
+        model.addAttribute("stats", this.tourService.tourStats());
+        model.addAttribute("ticket", this.tourService.ticketStats());
         return "/admin/adminsite";
     }
     

@@ -6,7 +6,8 @@
 package com.mycompany.repository.impl;
 
 
-import com.mycompany.pojo.Tag;
+import com.mycompany.pojo.Comment;
+import com.mycompany.pojo.Ticket;
 import com.mycompany.pojo.Tour;
 import com.mycompany.repository.TourRepository;
 import java.util.List;
@@ -172,12 +173,30 @@ public class TourRepositoryImpl implements TourRepository{
         CriteriaBuilder b = s.getCriteriaBuilder();
         CriteriaQuery<Object[]> query = b.createQuery(Object[].class);
         Root rootT = query.from(Tour.class);
-        Root rootTa = query.from(Tag.class);
+        Root rootC = query.from(Comment.class);
         
-        query.where(b.equal(rootT.get("tag"), rootTa.get("id")));
+        query.where(b.equal(rootC.get("tour"), rootT.get("id")));
         
-        query.multiselect(rootTa.get("id"), rootTa.get("name"), b.count(rootT.get("id")));
-        query.groupBy(rootTa.get("id"));
+        query.multiselect(rootT.get("id"), rootT.get("name"), b.count(rootC.get("id")));
+        query.groupBy(rootT.get("id"));
+        
+        Query q = s.createQuery(query);
+        
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Object[]> ticketStats() {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder b = s.getCriteriaBuilder();
+        CriteriaQuery<Object[]> query = b.createQuery(Object[].class);
+        Root rootT = query.from(Tour.class);
+        Root rootTi = query.from(Ticket.class);
+        
+        query.where(b.equal(rootTi.get("tour"), rootT.get("id")));
+        
+        query.multiselect(rootT.get("id"), rootT.get("name"), b.count(rootTi.get("quantity")));
+        query.groupBy(rootT.get("id"));
         
         Query q = s.createQuery(query);
         

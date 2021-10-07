@@ -10,7 +10,6 @@ import com.cloudinary.utils.ObjectUtils;
 import com.mycompany.pojo.Tour;
 import com.mycompany.repository.TourRepository;
 import com.mycompany.service.TourService;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,5 +100,10 @@ public class TourServiceImpl implements TourService{
     @Override
     public List<Object[]> tourStats() {
         return this.tourRepository.tourStats();
+    }
+
+    @Override
+    public List<Object[]> ticketStats() {
+        return this.tourRepository.ticketStats();
     }
 }

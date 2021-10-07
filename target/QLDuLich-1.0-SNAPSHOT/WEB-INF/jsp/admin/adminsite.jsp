@@ -78,13 +78,17 @@
                     <div class="col-xl-8 mb-30">
                             <div class="card-box height-100-p pd-20">
                                     <h2 class="h4 mb-20">Activity</h2>
-                                    <div id="chart5"></div>
+                                    <div>
+                                        <canvas id="chartTour"></canvas>
+                                    </div>
                             </div>
                     </div>
                     <div class="col-xl-4 mb-30">
                             <div class="card-box height-100-p pd-20">
-                                    <h2 class="h4 mb-20">Lead Target</h2>
-                                     <div id="chart6"></div>
+                                    <h2 class="h4 mb-20">Lead Target</h2
+                                    <div>
+                                        <canvas id="myChart"></canvas>
+                                    </div>
                             </div>
                     </div>
             </div>
@@ -187,6 +191,23 @@
             </div>
     </div>
                                                     
-   
+<script> 
+    
+    let statsLabel = [], statsData = [], ticketLabel = [], ticketData = []
+    
+    <c:forEach items="${stats}" var="s">
+        statsLabel.push('Tour ${s[0]}')
+        statsData.push(${s[2]})
+    </c:forEach>
+        
+    <c:forEach items="${ticket}" var="t">
+        ticketLabel.push('Tour ${t[0]}')
+        ticketData.push(${t[2]})
+    </c:forEach>
+    
+    statsTag('myChart', statsLabel, statsData)
+    statsTour('chartTour', ticketLabel, ticketData)
+    
+</script>
                               
                                                    

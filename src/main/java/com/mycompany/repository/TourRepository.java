@@ -24,4 +24,5 @@ public interface TourRepository {
     Boolean updateTour(Tour tour);
     long countTour();
     List<Object[]> tourStats();
+    List<Object[]> ticketStats();
 }
